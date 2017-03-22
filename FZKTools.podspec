@@ -9,10 +9,10 @@ s.homepage     = "https://github.com/qqq5201260/FZKTools"
 s.license              = { :type => "MIT", :file => "LICENSE" }
 s.author             = { "czl" => "1421610488@qq.com" }
 s.source       = { :git => "https://github.com/qqq5201260/FZKTools.git", :tag => s.version }
+#s.source       = { :git => "git@github.com:aliyun/aliyun-specs.git", :tag => s.version }
 s.requires_arc = true
 
 s.source_files = 'FZKTools/*'
-
 
 
 s.subspec 'Category' do |ss|
@@ -23,12 +23,18 @@ s.subspec 'Macro' do |ss|
 ss.source_files = 'FZKTools/Macro/*.{h}'
 end
 
-s.subspec 'Notification' do |ss|
-ss.source_files = 'FZKTools/Notification/*.{h,m}'
-end
+
 
 s.subspec 'Utilities' do |ss|
 ss.source_files = 'FZKTools/Utilities/*.{h,m}'
 end
+
+s.subspec 'Aliyun' do |ss|
+s.frameworks = 'AlicloudHttpDNS','AlicloudUtils','CloudPushSDK','UTDID'
+end
+
+s.dependency 'AFNetworking'
+
+
 
 end

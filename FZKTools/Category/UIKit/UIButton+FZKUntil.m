@@ -175,7 +175,7 @@ static const void *UIButtonBlockKey = &UIButtonBlockKey;
 -(UILabel*)badge {
     return objc_getAssociatedObject(self, &UIButton_badgeKey);
 }
--(void)setbadge:(UILabel *)badgeLabel
+-(void)setBadge:(UILabel *)badgeLabel
 {
     objc_setAssociatedObject(self, &UIButton_badgeKey, badgeLabel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
