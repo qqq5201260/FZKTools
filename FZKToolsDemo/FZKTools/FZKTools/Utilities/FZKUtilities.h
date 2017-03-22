@@ -9,6 +9,12 @@
 #ifndef FZKUtilities_h
 #define FZKUtilities_h
 
+#import "FZKConvert.h"
 
+#import "FZKPublicMothod.h"
+
+#import "FZKSandbox.h"
+
+#import "FZKAdjustScreen.h"
 
 #endif /* FZKUtilities_h */

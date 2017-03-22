@@ -99,6 +99,7 @@
 		0D41189B1E825F10002FC1F9 /* FZKSandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKSandbox.h; sourceTree = "<group>"; };
 		0D41189C1E825F10002FC1F9 /* FZKSandbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZKSandbox.m; sourceTree = "<group>"; };
 		0D41189D1E825F10002FC1F9 /* FZKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKUtilities.h; sourceTree = "<group>"; };
+		0D4118B31E826250002FC1F9 /* FZKAdjustScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKAdjustScreen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +257,7 @@
 				0D41189B1E825F10002FC1F9 /* FZKSandbox.h */,
 				0D41189C1E825F10002FC1F9 /* FZKSandbox.m */,
 				0D41189D1E825F10002FC1F9 /* FZKUtilities.h */,
+				0D4118B31E826250002FC1F9 /* FZKAdjustScreen.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
