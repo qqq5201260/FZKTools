@@ -27,6 +27,12 @@
     return ret;
 }
 
++ (NSString *)md5StringFromSourceString:(NSString *)sourceString{
+    
+    return [sourceString md5String];
+    
+}
+
 - (NSString*)base64EncodedString {
     
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
