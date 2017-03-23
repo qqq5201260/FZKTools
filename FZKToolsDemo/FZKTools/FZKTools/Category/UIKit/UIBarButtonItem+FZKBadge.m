@@ -160,14 +160,14 @@ NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey"
     UILabel* lbl = objc_getAssociatedObject(self, &UIBarButtonItem_badgeKey);
     if(lbl==nil) {
         lbl = [[UILabel alloc] initWithFrame:CGRectMake(self.badgeOriginX, self.badgeOriginY, 20, 20)];
-        [self setbadge:lbl];
+        [self setBadge:lbl];
         [self badgeInit];
         [self.customView addSubview:lbl];
         lbl.textAlignment = NSTextAlignmentCenter;
     }
     return lbl;
 }
--(void)setbadge:(UILabel *)badgeLabel
+-(void)setBadge:(UILabel *)badgeLabel
 {
     objc_setAssociatedObject(self, &UIBarButtonItem_badgeKey, badgeLabel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
