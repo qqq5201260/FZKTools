@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
 @interface UIApplication (FZKAPNs)
 
 
@@ -16,6 +18,6 @@
 
  @param responder iOS10 以后设置代理
  */
-+ (void)registerAPNsSetDeledate:(UIResponder *)responder;
++ (void)registerAPNsSetDeledate:(id <UNUserNotificationCenterDelegate>)responder;
 
 @end

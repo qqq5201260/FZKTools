@@ -11,9 +11,7 @@
 
 #import "UIApplication+FZKAPNs.h"
 
-#ifdef NSFoundationVersionNumber_iOS_9_x_Max
-#import <UserNotifications/UserNotifications.h>
-#endif
+
 
 @interface UIApplication ()
 
@@ -23,7 +21,7 @@
 
 @implementation UIApplication (FZKAPNs)
 
-+ (void)registerAPNsSetDeledate:(UIResponder *)responder;{
++ (void)registerAPNsSetDeledate:(id <UNUserNotificationCenterDelegate>)responder;{
     
    UIApplication *application = [UIApplication sharedApplication];
     CGFloat vision = [[[UIDevice currentDevice] systemVersion] floatValue];
