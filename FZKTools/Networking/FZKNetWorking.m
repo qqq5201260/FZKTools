@@ -8,7 +8,7 @@
 
 #import "FZKNetWorking.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "NSString+FZKEncode.h"
+//#import "NSString+FZKEncode.h"
 
 #if __has_include(<AFNetworking/AFNetworkActivityIndicatorManager.h>)
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
@@ -266,14 +266,14 @@ static inline NSString *cachePath() {
     
     if ([self baseUrl] == nil) {
         if ([NSURL URLWithString:url] == nil) {
-            FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
             return nil;
         }
     } else {
         NSURL *absouluteURL = [NSURL URLWithString:absolute];
         
         if (absouluteURL == nil) {
-            FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
             return nil;
         }
     }
@@ -327,7 +327,7 @@ static inline NSString *cachePath() {
             if (error.code == CODE_TIMEOUT && timesOfRetry > 0) {
                 [task cancel];
                 [self _requestWithUrl:url refreshCache:refreshCache httpMedth:httpMethod params:params progress:progress success:success fail:fail];
-                FZKAppLog(@"%@超时重试%@",url,@(timesOfRetry));
+                NSLog(@"%@超时重试%@",url,@(timesOfRetry));
                 //设置请求超时重试次数
                 timesOfRetry--;
                 [[self allTimesOfRetryURLs] setObject:@(timesOfRetry) forKey:url];
@@ -387,7 +387,7 @@ static inline NSString *cachePath() {
             if (error.code == CODE_TIMEOUT && timesOfRetry > 0) {
                 [task cancel];
                 [self _requestWithUrl:url refreshCache:refreshCache httpMedth:httpMethod params:params progress:progress success:success fail:fail];
-                FZKAppLog(@"%@超时重试%@",url,@(timesOfRetry));
+                NSLog(@"%@超时重试%@",url,@(timesOfRetry));
                 //设置请求超时重试次数
                 timesOfRetry--;
                 [[self allTimesOfRetryURLs] setObject:@(timesOfRetry) forKey:url];
@@ -432,12 +432,12 @@ static inline NSString *cachePath() {
 {
     if ([self baseUrl] == nil) {
         if ([NSURL URLWithString:url] == nil) {
-            FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
             return nil;
         }
     } else {
         if ([NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self baseUrl], url]] == nil) {
-            FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
             return nil;
         }
     }
@@ -495,7 +495,7 @@ static inline NSString *cachePath() {
                                  success:(SuccessBlock)success
                                     fail:(FailureBlock)fail {
     if ([NSURL URLWithString:uploadingFile] == nil) {
-        FZKAppLog(@"uploadingFile无效，无法生成URL。请检查待上传文件是否存在");
+        NSLog(@"uploadingFile无效，无法生成URL。请检查待上传文件是否存在");
         return nil;
     }
     
@@ -507,7 +507,7 @@ static inline NSString *cachePath() {
     }
     
     if (uploadURL == nil) {
-        FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文或特殊字符，请尝试Encode URL");
+        NSLog(@"URLString无效，无法生成URL。可能是URL中有中文或特殊字符，请尝试Encode URL");
         return nil;
     }
     
@@ -557,12 +557,12 @@ static inline NSString *cachePath() {
                                failure:(FailureBlock)failure {
     if ([self baseUrl] == nil) {
         if ([NSURL URLWithString:url] == nil) {
-            FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
             return nil;
         }
     } else {
         if ([NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self baseUrl], url]] == nil) {
-            FZKAppLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
             return nil;
         }
     }
@@ -587,14 +587,14 @@ static inline NSString *cachePath() {
             }
             
             if ([self isDebug]) {
-                FZKAppLog(@"Download success for url %@",
+                NSLog(@"Download success for url %@",
                           [self absoluteUrlWithPath:url]);
             }
         } else {
             [self handleCallbackWithError:error fail:failure];
             
             if ([self isDebug]) {
-                FZKAppLog(@"Download fail for url %@, reason : %@",
+                NSLog(@"Download fail for url %@, reason : %@",
                           [self absoluteUrlWithPath:url],
                           [error description]);
             }
@@ -681,8 +681,8 @@ static inline NSString *cachePath() {
 }
 
 + (void)logWithSuccessResponse:(id)response url:(NSString *)url params:(NSDictionary *)params {
-    FZKAppLog(@"\n");
-    FZKAppLog(@"\nRequest success, URL: %@\n params:%@\n response:%@\n\n",
+    NSLog(@"\n");
+    NSLog(@"\nRequest success, URL: %@\n params:%@\n response:%@\n\n",
               [self generateGETAbsoluteURL:url params:params],
               params,
               [self tryToParseData:response]);
@@ -695,14 +695,14 @@ static inline NSString *cachePath() {
         params = @"";
     }
     
-    FZKAppLog(@"\n");
+    NSLog(@"\n");
     if ([error code] == NSURLErrorCancelled) {
-        FZKAppLog(@"\nRequest was canceled mannully, URL: %@ %@%@\n\n",
+        NSLog(@"\nRequest was canceled mannully, URL: %@ %@%@\n\n",
                   [self generateGETAbsoluteURL:url params:params],
                   format,
                   params);
     } else {
-        FZKAppLog(@"\nRequest error, URL: %@ %@%@\n errorInfos:%@\n\n",
+        NSLog(@"\nRequest error, URL: %@ %@%@\n errorInfos:%@\n\n",
                   [self generateGETAbsoluteURL:url params:params],
                   format,
                   params,
@@ -808,19 +808,36 @@ static inline NSString *cachePath() {
         // Try to get datas from disk
         NSString *directoryPath = cachePath();
         NSString *absoluteURL = [self generateGETAbsoluteURL:url params:params];
-        NSString *key = [NSString md5StringFromSourceString:absoluteURL];
+        NSString *key = [self md5StringFromSourceString:absoluteURL];
         NSString *path = [directoryPath stringByAppendingPathComponent:key];
         
         NSData *data = [[NSFileManager defaultManager] contentsAtPath:path];
         if (data) {
             cacheData = data;
-            FZKAppLog(@"Read data from cache for url: %@\n", url);
+            NSLog(@"Read data from cache for url: %@\n", url);
         }
     }
     
     return cacheData;
 }
 
+/**
+ md5编码
+
+ @param sourceString 转换前字符串
+ @return 转换后字符串
+ */
++ (NSString *)md5StringFromSourceString:(NSString *)sourceString{
+    const char *cStr = [sourceString UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, (unsigned int)strlen(cStr), result);
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
+    for(int i = 0; i<CC_MD5_DIGEST_LENGTH; i++) {
+        [ret appendFormat:@"%02X",result[i]];
+    }
+    
+    return ret;
+}
 + (void)cacheResponseObject:(id)responseObject request:(NSURLRequest *)request parameters:params {
     if (request && responseObject && ![responseObject isKindOfClass:[NSNull class]]) {
         NSString *directoryPath = cachePath();
@@ -833,13 +850,13 @@ static inline NSString *cachePath() {
                                                        attributes:nil
                                                             error:&error];
             if (error) {
-                FZKAppLog(@"create cache dir error: %@\n", error);
+                NSLog(@"create cache dir error: %@\n", error);
                 return;
             }
         }
         
         NSString *absoluteURL = [self generateGETAbsoluteURL:request.URL.absoluteString params:params];
-        NSString *key = [NSString md5StringFromSourceString:absoluteURL];
+        NSString *key = [self md5StringFromSourceString:absoluteURL];
         NSString *path = [directoryPath stringByAppendingPathComponent:key];
         NSDictionary *dict = (NSDictionary *)responseObject;
         
@@ -855,9 +872,9 @@ static inline NSString *cachePath() {
         if (data && error == nil) {
             BOOL isOk = [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:nil];
             if (isOk) {
-                FZKAppLog(@"cache file ok for request: %@\n", absoluteURL);
+                NSLog(@"cache file ok for request: %@\n", absoluteURL);
             } else {
-                FZKAppLog(@"cache file error for request: %@\n", absoluteURL);
+                NSLog(@"cache file error for request: %@\n", absoluteURL);
             }
         }
     }
