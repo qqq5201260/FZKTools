@@ -43,5 +43,9 @@
 
 
 
+/**
+ RSA加密
+ */
+- (NSString *)RSAEncode;
 
 @end
