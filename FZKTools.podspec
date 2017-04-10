@@ -26,6 +26,7 @@ end
 s.subspec 'Networking' do |ss|
 ss.source_files = 'FZKTools/Networking/*.{h,m}'
 ss.dependency 'AFNetworking','~>3.1.0' #网络连接
+
 end
 
 s.subspec 'Utilities' do |ss|
