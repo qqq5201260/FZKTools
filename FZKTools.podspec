@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 s.name         = "FZKTools"
-s.version      = "1.0.2"
+s.version      = "1.0.3"
 s.ios.deployment_target = '8.0'
 s.summary      = "some utilities"
 s.homepage     = "https://github.com/qqq5201260/FZKTools"
@@ -17,6 +17,7 @@ s.source_files = 'FZKTools/*'
 
 s.subspec 'Category' do |ss|
 ss.source_files = 'FZKTools/Category/*', 'FZKTools/Category/**/*'
+ss.dependency 'ObjcAssociatedObjectHelpers', '~> 2.0.1'#Rsa加密
 end
 
 s.subspec 'Macro' do |ss|
