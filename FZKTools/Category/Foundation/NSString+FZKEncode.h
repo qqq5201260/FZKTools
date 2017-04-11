@@ -15,6 +15,13 @@
  */
 - (NSString *)md5String;
 
+/*
+  MD5加密 
+  param sourceString 转换前字符串
+  return 转MD5后字符串
+ */
++ (NSString *)md5StringFromSourceString:(NSString *)sourceString;
+
 
 /*钥匙串访问
  苹果在 iOS 7.0.3版本以后公布钥匙串访问的SDK.钥匙串访问接口是纯C语言的
@@ -36,5 +43,9 @@
 
 
 
+/**
+ RSA加密
+ */
+- (NSString *)RSAEncode;
 
 @end

@@ -42,6 +42,7 @@ static NSMutableDictionary *sg_timesOfRetryURLs;
 + (void)cacheGetRequest:(BOOL)isCacheGet shoulCachePost:(BOOL)shouldCachePost {
     sg_cacheGet = isCacheGet;
     sg_cachePost = shouldCachePost;
+    
 }
 
 + (void)setNumberOfTimesToRetryOnTimeout:(NSInteger)number {
