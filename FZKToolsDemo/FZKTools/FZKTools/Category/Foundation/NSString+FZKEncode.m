@@ -68,7 +68,6 @@ SYNTHESIZE_ASC_OBJ(publicKey, setPublicKey);
     
     if (!resourcePath) {
         NSLog(@"缺失key.sr文件");
-        return nil;
     }
     
     SecCertificateRef myCertificate = nil;
