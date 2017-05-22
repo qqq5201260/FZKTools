@@ -61,7 +61,15 @@ SYNTHESIZE_ASC_OBJ(publicKey, setPublicKey);
         return (__bridge SecKeyRef)(self.publicKey);
     }
     
-    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"key" ofType:@"sr"];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"Commons" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path]?[NSBundle bundleWithPath:path]:[NSBundle mainBundle];
+    
+    NSString *resourcePath = [bundle pathForResource:@"key" ofType:@"sr"];
+    
+    if (!resourcePath) {
+        NSLog(@"缺失key.sr文件");
+    }
+    
     SecCertificateRef myCertificate = nil;
     NSData *certificateData = [[NSData alloc] initWithContentsOfFile:resourcePath];
     myCertificate = SecCertificateCreateWithData(kCFAllocatorDefault, (__bridge_retained CFDataRef) certificateData);
