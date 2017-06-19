@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 s.name         = "FZKTools"
-s.version      = "1.0.4"
+s.version      = "1.0.5"
 s.ios.deployment_target = '8.0'
 s.summary      = "some utilities"
 s.homepage     = "https://github.com/qqq5201260/FZKTools"
@@ -32,6 +32,10 @@ end
 
 s.subspec 'Utilities' do |ss|
 ss.source_files = 'FZKTools/Utilities/*.{h,m}'
+end
+
+s.subspec 'UUID' do |ss|
+ss.source_files = 'FZKTools/UUID/*.{h,m}'
 end
 
 
