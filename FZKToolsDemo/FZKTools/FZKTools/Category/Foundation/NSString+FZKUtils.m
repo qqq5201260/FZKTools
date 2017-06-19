@@ -59,4 +59,9 @@
     
     return [[NSString pinyinWithChineseString:string] substringToIndex:1];
 }
+
+
+
+
+
 @end

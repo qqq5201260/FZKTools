@@ -39,4 +39,8 @@
  @return 中文拼音首字母小写
  */
 + (NSString *)pinyinWithChineseFirstLower:(NSString *)string;
+
+
+
+
 @end

@@ -35,6 +35,10 @@
 		0D4118071E825E00002FC1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4118051E825E00002FC1F9 /* Main.storyboard */; };
 		0D4118091E825E00002FC1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D4118081E825E00002FC1F9 /* Assets.xcassets */; };
 		0D41180C1E825E00002FC1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D41180A1E825E00002FC1F9 /* LaunchScreen.storyboard */; };
+		0D5EFC2D1EF766FD00556D3A /* FZKKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EFC2A1EF766FD00556D3A /* FZKKeyChainStore.m */; };
+		0D5EFC2E1EF766FD00556D3A /* FZKUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EFC2C1EF766FD00556D3A /* FZKUUID.m */; };
+		0D5EFC331EF7722E00556D3A /* FZKCChineseSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EFC301EF7722E00556D3A /* FZKCChineseSort.m */; };
+		0D5EFC341EF7722E00556D3A /* FZKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EFC321EF7722E00556D3A /* FZKCountDownButton.m */; };
 		0D760F731E9B137A00AF7996 /* UIWindow+FZKUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D760F721E9B137A00AF7996 /* UIWindow+FZKUntil.m */; };
 		0DD518381ED2E41B00000453 /* key.sr in Resources */ = {isa = PBXBuildFile; fileRef = 0DD518371ED2E41B00000453 /* key.sr */; };
 /* End PBXBuildFile section */
@@ -105,6 +109,14 @@
 		0D4118081E825E00002FC1F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D41180B1E825E00002FC1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D41180D1E825E00002FC1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D5EFC291EF766FD00556D3A /* FZKKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKKeyChainStore.h; sourceTree = "<group>"; };
+		0D5EFC2A1EF766FD00556D3A /* FZKKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZKKeyChainStore.m; sourceTree = "<group>"; };
+		0D5EFC2B1EF766FD00556D3A /* FZKUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKUUID.h; sourceTree = "<group>"; };
+		0D5EFC2C1EF766FD00556D3A /* FZKUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZKUUID.m; sourceTree = "<group>"; };
+		0D5EFC2F1EF7722E00556D3A /* FZKCChineseSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKCChineseSort.h; sourceTree = "<group>"; };
+		0D5EFC301EF7722E00556D3A /* FZKCChineseSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZKCChineseSort.m; sourceTree = "<group>"; };
+		0D5EFC311EF7722E00556D3A /* FZKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKCountDownButton.h; sourceTree = "<group>"; };
+		0D5EFC321EF7722E00556D3A /* FZKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZKCountDownButton.m; sourceTree = "<group>"; };
 		0D760F711E9B137A00AF7996 /* UIWindow+FZKUntil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+FZKUntil.h"; sourceTree = "<group>"; };
 		0D760F721E9B137A00AF7996 /* UIWindow+FZKUntil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+FZKUntil.m"; sourceTree = "<group>"; };
 		0DD518371ED2E41B00000453 /* key.sr */ = {isa = PBXFileReference; lastKnownFileType = file; name = key.sr; path = ../key.sr; sourceTree = "<group>"; };
@@ -131,6 +143,7 @@
 				0D1F34FC1E83952800A5118D /* Macro */,
 				0D1F35041E83952800A5118D /* Notification */,
 				0D1F35051E83952800A5118D /* README.md */,
+				0D5EFC281EF766FD00556D3A /* UUID */,
 				0D1F35061E83952800A5118D /* Utilities */,
 			);
 			path = FZKTools;
@@ -221,6 +234,10 @@
 		0D1F35061E83952800A5118D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0D5EFC2F1EF7722E00556D3A /* FZKCChineseSort.h */,
+				0D5EFC301EF7722E00556D3A /* FZKCChineseSort.m */,
+				0D5EFC311EF7722E00556D3A /* FZKCountDownButton.h */,
+				0D5EFC321EF7722E00556D3A /* FZKCountDownButton.m */,
 				0D1F35071E83952800A5118D /* FZKAdjustScreen.h */,
 				0D1F35081E83952800A5118D /* FZKConvert.h */,
 				0D1F35091E83952800A5118D /* FZKConvert.m */,
@@ -281,6 +298,17 @@
 				0D4117FD1E825E00002FC1F9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D5EFC281EF766FD00556D3A /* UUID */ = {
+			isa = PBXGroup;
+			children = (
+				0D5EFC291EF766FD00556D3A /* FZKKeyChainStore.h */,
+				0D5EFC2A1EF766FD00556D3A /* FZKKeyChainStore.m */,
+				0D5EFC2B1EF766FD00556D3A /* FZKUUID.h */,
+				0D5EFC2C1EF766FD00556D3A /* FZKUUID.m */,
+			);
+			path = UUID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,10 +386,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D1F351D1E83952800A5118D /* UITextField+FZKUntil.m in Sources */,
+				0D5EFC341EF7722E00556D3A /* FZKCountDownButton.m in Sources */,
 				0D1F35221E83952800A5118D /* FZKPublicMothod.m in Sources */,
 				0D1F351A1E83952800A5118D /* UIImage+FZKUntil.m in Sources */,
 				0D1F351E1E83952800A5118D /* UITextView+FZKUntil.m in Sources */,
+				0D5EFC331EF7722E00556D3A /* FZKCChineseSort.m in Sources */,
 				0D1F35201E83952800A5118D /* README.md in Sources */,
+				0D5EFC2D1EF766FD00556D3A /* FZKKeyChainStore.m in Sources */,
 				0D1F35171E83952800A5118D /* UIColor+FZKUntil.m in Sources */,
 				0D4118041E825E00002FC1F9 /* ViewController.m in Sources */,
 				0D4118011E825E00002FC1F9 /* AppDelegate.m in Sources */,
@@ -374,6 +405,7 @@
 				0D1F35211E83952800A5118D /* FZKConvert.m in Sources */,
 				0D1F35161E83952800A5118D /* UIButton+FZKUntil.m in Sources */,
 				0D4117FE1E825E00002FC1F9 /* main.m in Sources */,
+				0D5EFC2E1EF766FD00556D3A /* FZKUUID.m in Sources */,
 				0D1F35181E83952800A5118D /* UIControl+FZKUtil.m in Sources */,
 				0D1F35131E83952800A5118D /* NSString+FZKUtils.m in Sources */,
 				0D1F351C1E83952800A5118D /* UINavigationController+FZKUntil.m in Sources */,

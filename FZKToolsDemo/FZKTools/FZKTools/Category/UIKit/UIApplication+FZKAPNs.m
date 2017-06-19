@@ -21,7 +21,7 @@
 
 @implementation UIApplication (FZKAPNs)
 
-+ (void)registerAPNsSetDeledate:(id <UNUserNotificationCenterDelegate>)responder;{
++ (void)registerAPNsSetDeledate:(id <UNUserNotificationCenterDelegate>)responder{
     
    UIApplication *application = [UIApplication sharedApplication];
     CGFloat vision = [[[UIDevice currentDevice] systemVersion] floatValue];

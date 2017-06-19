@@ -17,5 +17,6 @@
 
 #import "FZKUIKit.h"
 
+#import "FZKUUID.h"
 
 #endif /* FZKTools_h */

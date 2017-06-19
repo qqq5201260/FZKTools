@@ -67,7 +67,7 @@ SYNTHESIZE_ASC_OBJ(publicKey, setPublicKey);
     NSString *resourcePath = [bundle pathForResource:@"key" ofType:@"sr"];
     
     if (!resourcePath) {
-        NSLog(@"缺失key.sr文件");
+        NSLog(@"缺失key.sr文件，可以在fzktools文件中查找");
     }
     
     SecCertificateRef myCertificate = nil;

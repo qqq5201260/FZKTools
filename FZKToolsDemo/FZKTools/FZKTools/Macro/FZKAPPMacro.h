@@ -15,6 +15,10 @@
 #define APP_VERSION ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
 //APP构建版本号
 #define APP_BUILD ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"])
+
+//APP budbleId
+#define APP_Bundle_identifier ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"])
+
 //APP当前语言
 #define APP_CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
 
