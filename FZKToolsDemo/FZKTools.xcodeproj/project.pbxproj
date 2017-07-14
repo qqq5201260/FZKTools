@@ -13,6 +13,7 @@
 		0D4118071E825E00002FC1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4118051E825E00002FC1F9 /* Main.storyboard */; };
 		0D4118091E825E00002FC1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D4118081E825E00002FC1F9 /* Assets.xcassets */; };
 		0D41180C1E825E00002FC1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D41180A1E825E00002FC1F9 /* LaunchScreen.storyboard */; };
+		0D54849B1F186D34002C160F /* FZKMapNavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D54849A1F186D34002C160F /* FZKMapNavigationManager.m */; };
 		0D5EFCEB1EF778B300556D3A /* key.sr in Resources */ = {isa = PBXBuildFile; fileRef = 0D5EFCA51EF778B300556D3A /* key.sr */; };
 		0D5EFCEC1EF778B300556D3A /* NSDate+FZKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EFCA71EF778B300556D3A /* NSDate+FZKExtension.m */; };
 		0D5EFCED1EF778B300556D3A /* NSDictionary+FZKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5EFCA91EF778B300556D3A /* NSDictionary+FZKExtension.m */; };
@@ -54,6 +55,8 @@
 		0D4118081E825E00002FC1F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D41180B1E825E00002FC1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D41180D1E825E00002FC1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D5484991F186D34002C160F /* FZKMapNavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKMapNavigationManager.h; sourceTree = "<group>"; };
+		0D54849A1F186D34002C160F /* FZKMapNavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FZKMapNavigationManager.m; sourceTree = "<group>"; };
 		0D5EFCA41EF778B300556D3A /* FZKFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FZKFoundation.h; sourceTree = "<group>"; };
 		0D5EFCA51EF778B300556D3A /* key.sr */ = {isa = PBXFileReference; lastKnownFileType = file; path = key.sr; sourceTree = "<group>"; };
 		0D5EFCA61EF778B300556D3A /* NSDate+FZKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FZKExtension.h"; sourceTree = "<group>"; };
@@ -288,6 +291,8 @@
 				0D5EFCE31EF778B300556D3A /* FZKSandbox.h */,
 				0D5EFCE41EF778B300556D3A /* FZKSandbox.m */,
 				0D5EFCE51EF778B300556D3A /* FZKUtilities.h */,
+				0D5484991F186D34002C160F /* FZKMapNavigationManager.h */,
+				0D54849A1F186D34002C160F /* FZKMapNavigationManager.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				0D4118041E825E00002FC1F9 /* ViewController.m in Sources */,
 				0D4118011E825E00002FC1F9 /* AppDelegate.m in Sources */,
 				0D5EFCF11EF778B300556D3A /* UIApplication+FZKAPNs.m in Sources */,
+				0D54849B1F186D34002C160F /* FZKMapNavigationManager.m in Sources */,
 				0D5EFCEC1EF778B300556D3A /* NSDate+FZKExtension.m in Sources */,
 				0D5EFCFF1EF778B300556D3A /* README.md in Sources */,
 				0D5EFCF61EF778B300556D3A /* UIDevice+FZKHardware.m in Sources */,

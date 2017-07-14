@@ -21,4 +21,6 @@
 
 #import "FZKCChineseSort.h"
 
+#import "FZKMapNavigationManager.h"
+
 #endif /* FZKUtilities_h */
