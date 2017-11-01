@@ -119,6 +119,26 @@ int64_t totalBytesWritten);
                                  progress:(FZKUploadProgress)progress
                                   success:(SuccessBlock)success
                                   failure:(FailureBlock)failure;
+
+/**
+ *  图片上传接口，若不指定baseurl，可传完整的url
+ *
+ *  @param url      上传图片的接口路径，如/path/images/
+ *  @param photosParams   图片字典
+ *  @param params   非图片字典
+ *  @param progress 上传进度
+ *  @param success  上传成功回调
+ *  @param failure  上传失败回调
+ *
+ *  @return 返回的对象中有可取消请求的API
+ */
++ (FZKURLSessionTask *)uploadImageWithURL:(NSString *)url
+                                   photosParams:(NSDictionary<NSString *,UIImage *> *)photosParams
+                                   params:(NSDictionary *)params
+                                 progress:(FZKUploadProgress)progress
+                                  success:(SuccessBlock)success
+                                  failure:(FailureBlock)failure;
+
 //上传单张图片
 + (FZKURLSessionTask *)uploadImageWithURL:(NSString *)url
                                     image:(UIImage *)image

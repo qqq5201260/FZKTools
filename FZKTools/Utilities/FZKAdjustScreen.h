@@ -12,8 +12,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#define ORIGIN_WIDTH 320
-#define ORIGIN_HEIGHT 568
+#define ORIGIN_WIDTH 375
+#define ORIGIN_HEIGHT 667
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
 
 #define DH_INLINE static inline

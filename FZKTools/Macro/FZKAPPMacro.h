@@ -34,22 +34,28 @@
 
 /**************************************Log***************************************/
 //自定义高效率的NSLog
-#ifdef DEBUG
-#define NSLog(format, ...) do { \
-fprintf(stderr, "<%s : 第%d行> %s\n", \
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], \
-__LINE__, __func__);\
-(NSLog)((format), ##__VA_ARGS__);\
-} while (0)
-#else
-#define NSLog(...)
-#endif
+//#ifdef DEBUG
+//#define NSLog(format, ...) do { \
+//fprintf(stderr, "<%s : 第%d行> %s\n", \
+//[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], \
+//__LINE__, __func__);\
+//(NSLog)((format), ##__VA_ARGS__);\
+//} while (0)
+//#else
+//#define NSLog(...)
+//#endif
 
 //debug输出rect，size和point的宏
 #define NSLogRect(rect) NSLog(@"%s x:%.4f, y:%.4f, w:%.4f, h:%.4f", #rect, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
 #define NSLogSize(size) NSLog(@"%s w:%.4f, h:%.4f", #size, size.width, size.height)
 #define NSLogPoint(point) NSLog(@"%s x:%.4f, y:%.4f", #point, point.x, point.y)
 
+
+#define Color_Pink   RGBA(255, 85, 95, 1)
+#define RGBA(R/*红*/, G/*绿*/, B/*蓝*/, A/*透明*/) \
+[UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
+
+#define Font(x)       [UIFont systemFontOfSize:x]
 
 /**************************************设备***************************************/
 //判断是否为iPhone

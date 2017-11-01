@@ -28,7 +28,7 @@ static BOOL sg_isEnableInterfaceDebug = NO;
 static BOOL sg_shouldAutoEncode = NO;
 static NSDictionary *sg_httpHeaders = nil;
 static FZKResponseType sg_responseType = kFZKResponseTypeJSON;
-static FZKRequestType  sg_requestType  = kFZKRequestTypeJSON;
+static FZKRequestType  sg_requestType  = kFZKRequestTypePlainText;
 static NSMutableArray *sg_requestTasks;
 static BOOL sg_cacheGet = YES;
 static BOOL sg_cachePost = NO;
@@ -460,6 +460,72 @@ static inline NSString *cachePath() {
             NSData *imageData = UIImageJPEGRepresentation(image, 0.28);
             [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"upload%d",i+1] fileName:fileName mimeType:@"image/jpeg"];
         }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        if (progress) {
+            progress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
+        }
+        NSLog(@"uploadProgress is %lld,总字节 is %lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[self allTasks] removeObject:task];
+        [self successResponse:responseObject callback:success];
+        
+        if ([self isDebug]) {
+            [self logWithSuccessResponse:responseObject
+                                     url:absolute
+                                  params:params];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [[self allTasks] removeObject:task];
+        [self handleCallbackWithError:error fail:failure];
+        if ([self isDebug]) {
+            [self logWithFailError:error url:absolute params:nil];
+        }
+    }];
+    [session resume];
+    if (session) {
+        [[self allTasks] addObject:session];
+    }
+    
+    return session;
+}
+
++ (FZKURLSessionTask *)uploadImageWithURL:(NSString *)url
+                             photosParams:(NSDictionary<NSString *,UIImage *> *)photosParams
+                                   params:(NSDictionary *)params
+                                 progress:(FZKUploadProgress)progress
+                                  success:(SuccessBlock)success
+                                  failure:(FailureBlock)failure{
+    if ([self baseUrl] == nil) {
+        if ([NSURL URLWithString:url] == nil) {
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            return nil;
+        }
+    } else {
+        if ([NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self baseUrl], url]] == nil) {
+            NSLog(@"URLString无效，无法生成URL。可能是URL中有中文，请尝试Encode URL");
+            return nil;
+        }
+    }
+    
+    if ([self shouldEncode]) {
+        url = [self encodeUrl:url];
+    }
+    
+    NSString *absolute = [self absoluteUrlWithPath:url];
+    
+    AFHTTPSessionManager *manager = [self manager];
+    FZKURLSessionTask *session = [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [photosParams enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, UIImage * _Nonnull obj, BOOL * _Nonnull stop) {
+            NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+            formatter.dateFormat=@"yyyyMMddHHmmss";
+            NSString *str=[formatter stringFromDate:[NSDate date]];
+            NSString *fileName=[NSString stringWithFormat:@"%@.jpg",str];
+            UIImage *image = obj;
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.28);
+            [formData appendPartWithFileData:imageData name:key fileName:fileName mimeType:@"image/jpeg"];
+        }];
+
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         if (progress) {
             progress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
