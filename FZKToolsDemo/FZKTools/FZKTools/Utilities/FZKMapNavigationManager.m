@@ -68,9 +68,38 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
         NSMutableDictionary *gaodeMapDic = [NSMutableDictionary dictionary];
         gaodeMapDic[@"title"] = @"高德地图";
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"],@"commons12346001",endNode.latitude,endNode.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        gaodeMapDic[@"url"] = urlString;
+        NSString *urlString = [NSString stringWithFormat:@"iosamap://path?sourceApplication=%@&backScheme=%@&&dlat=%f&dlon=%f&dname=目的地",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"],@"commons12346001",endNode.latitude,endNode.longitude];
+        //        NSString *urlString = [NSString stringWithFormat:@"https://uri.amap.com/navigation?to=%f,%f,endpoint&callnative=1&mode=car",endNode.latitude,endNode.longitude];
+        
+        
+        //        CLLocationCoordinate2D corrds2 = endNode;
+        //            NSString * urlString = @"";
+        //            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
+        //        NSString *urlString = [NSString stringWithFormat:@"iosamap://viewMap?sourceApplication=%@&poiname=目的地&lat=%f&lon=%f&dev=1",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"],endNode.latitude,endNode.longitude];
+        //                }
+        
+        
+        gaodeMapDic[@"url"] = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [maps addObject:gaodeMapDic];
+        
+        
+        
+        //        float shopLat = gcj02Coord.latitude;
+        //        float shoplng = gcj02Coord.longitude;
+        //
+        //        NSString *urlString = [NSString stringWithFormat:@"iosamap://path?sourceApplication=jikexiue&backScheme=jkxe&slat=%f&slon=%f&sname=我的位置&dev=1&t=1",self.userLocation.location.coordinate.latitude, self.userLocation.location.coordinate.longitude];
+        //
+        //        if (shopLat != 0 && shoplng != 0) {
+        //            urlString = [NSString stringWithFormat:@"%@&dlat=%f&dlon=%f&dname=%@", urlString, shopLat, shoplng ,_orderModel.addressStr];
+        //        }else{
+        //            urlString = [NSString stringWithFormat:@"%@&dname=%@",urlString, _orderModel.addressStr];
+        //        }
+        //
+        //        urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //
+        //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:^(BOOL success) {
+        //
+        //        }];
     }
     
     //谷歌地图

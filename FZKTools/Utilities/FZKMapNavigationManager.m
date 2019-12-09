@@ -8,7 +8,7 @@
 
 #import "FZKMapNavigationManager.h"
 #import <UIKit/UIKit.h>
-
+#import "UIWindow+FZKUntil.h"
 
 @implementation FZKMapNavigationManager
 
@@ -39,10 +39,11 @@
         }];
         [alertVC addAction:action];
     }
-    
+//    UINavigationController *nav = [UIWindow currentVC].navigationController;
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertVC animated:YES completion:nil];
+    // 然后再进行present操作
+//    UIViewController *vc = (nav == nil ? [UIWindow currentVC] : nav);
+     [[UIWindow currentVC] presentViewController:alertVC animated:YES completion:nil];
 }
 
 
@@ -68,8 +69,8 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
         NSMutableDictionary *gaodeMapDic = [NSMutableDictionary dictionary];
         gaodeMapDic[@"title"] = @"高德地图";
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"],@"commons12346001",endNode.latitude,endNode.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        gaodeMapDic[@"url"] = urlString;
+                NSString *urlString = [NSString stringWithFormat:@"iosamap://path?sourceApplication=%@&backScheme=%@&&dlat=%f&dlon=%f&dname=目的地",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"],@"commons12346001",endNode.latitude,endNode.longitude];
+        gaodeMapDic[@"url"] = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [maps addObject:gaodeMapDic];
     }
     

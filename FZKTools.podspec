@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 s.name         = "FZKTools"
-s.version      = "1.0.9"
+s.version      = "1.0.10"
 s.ios.deployment_target = '8.0'
 s.summary      = "some utilities"
 s.homepage     = "https://github.com/qqq5201260/FZKTools"
