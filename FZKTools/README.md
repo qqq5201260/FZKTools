@@ -33,6 +33,7 @@ Utilities  其他常用方法
     1，FZKPublicMothod 部分正则表达式
     2，FZKConvert 日期和时间戳的转化
     3，FZKSandbox 沙盒相关
+    4，FZKMapNavigationManager 导航相关
 
    
 

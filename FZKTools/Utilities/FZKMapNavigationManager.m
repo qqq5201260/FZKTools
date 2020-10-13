@@ -8,7 +8,7 @@
 
 #import "FZKMapNavigationManager.h"
 #import <UIKit/UIKit.h>
-#import "UIWindow+FZKUntil.h"
+
 
 @implementation FZKMapNavigationManager
 
@@ -43,7 +43,7 @@
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     // 然后再进行present操作
 //    UIViewController *vc = (nav == nil ? [UIWindow currentVC] : nav);
-     [[UIWindow currentVC] presentViewController:alertVC animated:YES completion:nil];
+     [[self currentVC] presentViewController:alertVC animated:YES completion:nil];
 }
 
 
@@ -93,6 +93,27 @@
     }
     
     return maps;
+}
+
++ (UIViewController *)currentVC{
+
+   return [self topVC:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
++ (UIViewController *)topVC:(UIViewController *)vc{
+
+    if ([vc isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tar = (UITabBarController *)vc;
+        return [self topVC:tar.selectedViewController];
+    }
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *)vc;
+        return [self topVC:nav.visibleViewController];
+    }
+    if (vc.presentedViewController) {
+        return [self topVC:vc.presentedViewController];
+    }
+    return vc;
 }
 
 @end
